@@ -15,7 +15,7 @@
 # Table: posts
 
 - id INT PK AI UNIQUE NOTNULL
-- user_id FK NOTNULL
+- user_id INT FK NOTNULL
 - content TEXT NOTNULL
 - created DATETIME NOTNULL
 
@@ -25,10 +25,10 @@
 - type ENUM('photo', 'video') NOTNULL
 - url VARCHAR(255) NOTNULL UNIQUE
 
-# Table: media_post
+# Table: medias_posts
 
-- media_id FK
-- post_id FK 
+- media_id INT FK
+- post_id INT FK 
 - PRIMARY KEY (media_id, post_id)
 
 # Table: tags
@@ -38,21 +38,21 @@
 
 # Table: posts_tags
 
-- post_id FK
-- tag_id FK 
+- post_id INT FK
+- tag_id MEDIUMINT FK 
 - PRIMARY KEY (post_id, tag_id)
 
 # Table: likes
 
 - id BIGINT PK AI UNIQUE NOTNULL
-- post_id FK
-- user_id FK 
+- post_id INT FK
+- user_id INT FK 
 - UNIQUE (post_id, user_id)
 
 # Table: comments
 
 - id BIGINT PK AI UNIQUE NOTNULL
-- post_id FK
-- user_id FK 
+- post_id INT FK
+- user_id INT FK 
 - content TEXT NOTNULL
 - created DATETIME NOTNULL
